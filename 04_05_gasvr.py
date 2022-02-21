@@ -30,6 +30,7 @@ dataset = pd.read_csv('selected_descriptors_with_boiling_point.csv', index_col=0
 
 y_train = dataset.iloc[:, 0]  # 目的変数
 x_train = dataset.iloc[:, 1:]  # 説明変数
+
 # autoscaling
 autoscaled_x_train = (x_train - x_train.mean(axis=0)) / x_train.std(axis=0, ddof=1)
 autoscaled_y_train = (y_train - y_train.mean()) / y_train.std(ddof=1)
