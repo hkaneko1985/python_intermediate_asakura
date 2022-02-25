@@ -61,7 +61,10 @@ if model.success_flag:
     try:
         fig = plt.figure()
         ax = fig.add_subplot(111)
-        plt.scatter(means[:, 0], means[:, 1], c=y)
+        if y.dtype == 'O':
+            plt.scatter(means[:, 0], means[:, 1], c=pd.factorize(y)[0])
+        else:
+            plt.scatter(means[:, 0], means[:, 1], c=y)
         plt.ylim(-1.1, 1.1)
         plt.xlim(-1.1, 1.1)
         plt.xlabel('t1 (mean)')
@@ -87,7 +90,10 @@ if model.success_flag:
     try:
         fig = plt.figure()
         ax = fig.add_subplot(111)
-        plt.scatter(modes[:, 0], modes[:, 1], c=y)
+        if y.dtype == 'O':
+            plt.scatter(modes[:, 0], modes[:, 1], c=pd.factorize(y)[0])
+        else:
+            plt.scatter(modes[:, 0], modes[:, 1], c=y)
         plt.ylim(-1.1, 1.1)
         plt.xlim(-1.1, 1.1)
         plt.xlabel('t1 (mode)')

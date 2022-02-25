@@ -110,7 +110,10 @@ if model.success_flag:
     try:
         fig = plt.figure()
         ax = fig.add_subplot(111)
-        plt.scatter(means[:, 0], means[:, 1], c=y)
+        if y.dtype == 'O':
+            plt.scatter(means[:, 0], means[:, 1], c=pd.factorize(y)[0])
+        else:
+            plt.scatter(means[:, 0], means[:, 1], c=y)
         plt.ylim(-1.1, 1.1)
         plt.xlim(-1.1, 1.1)
         plt.xlabel('t1 (mean)')
@@ -136,7 +139,10 @@ if model.success_flag:
     try:
         fig = plt.figure()
         ax = fig.add_subplot(111)
-        plt.scatter(modes[:, 0], modes[:, 1], c=y)
+        if y.dtype == 'O':
+            plt.scatter(modes[:, 0], modes[:, 1], c=pd.factorize(y)[0])
+        else:
+            plt.scatter(modes[:, 0], modes[:, 1], c=y)
         plt.ylim(-1.1, 1.1)
         plt.xlim(-1.1, 1.1)
         plt.xlabel('t1 (mode)')
@@ -186,3 +192,26 @@ if model.success_flag:
             shape_of_map[0], shape_of_map[1],
             shape_of_rbf_centers[0], shape_of_rbf_centers[1],
             variance_of_rbfs, lambda_in_em_algorithm, number_of_iterations))
+    
+    # plot the mean of responsibilities with cluster information
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    plt.scatter(means[:, 0], means[:, 1], c=clusters.iloc[:, 0])
+    plt.ylim(-1.1, 1.1)
+    plt.xlim(-1.1, 1.1)
+    plt.xlabel('t1 (mean)')
+    plt.ylabel('t2 (mean)')
+    ax.set_aspect('equal')
+    plt.show()
+
+    # plot the mode of responsibilities with cluster information
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    plt.scatter(modes[:, 0], modes[:, 1], c=clusters.iloc[:, 0])
+    plt.ylim(-1.1, 1.1)
+    plt.xlim(-1.1, 1.1)
+    plt.xlabel('t1 (mode)')
+    plt.ylabel('t2 (mode)')
+    ax.set_aspect('equal')
+    plt.show()
+    
