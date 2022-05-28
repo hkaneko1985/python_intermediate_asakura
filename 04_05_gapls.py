@@ -14,8 +14,8 @@ from sklearn import model_selection
 from sklearn.cross_decomposition import PLSRegression
 
 # 設定 ここから
-number_of_population = 100  # GA の世代数
-number_of_generation = 150  # GA の個体数
+number_of_population = 100  # GA の個体数
+number_of_generation = 150  # GA の世代数
 fold_number = 5  # クロスバリデーションの fold 数
 max_number_of_components = 10  # PLS の最大成分数
 threshold_of_variable_selection = 0.5  # 染色体の 0, 1 を分ける閾値

@@ -14,8 +14,8 @@ from sklearn import model_selection
 from sklearn import svm
 
 # 設定 ここから
-number_of_population = 100  # GA の世代数
-number_of_generation = 150  # GA の個体数
+number_of_population = 100  # GA の個体数
+number_of_generation = 150  # GA の世代数
 fold_number = 5  # クロスバリデーションの fold 数
 svr_c_2_range = (-5, 10)  # SVR の C の範囲 (2 の何乗か)
 svr_epsilon_2_range = (-10, 0)  # SVR の epsilon の範囲 (2 の何乗か)

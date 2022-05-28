@@ -18,8 +18,8 @@ max_dynamics_considered = 50  # 最大いくつまでの時間遅れを考慮す
 dynamics_span = 1  # 時間遅れの間隔
 number_of_areas = 5  # 選択する領域の数
 max_width_of_areas = 20  # 選択する領域の幅の最大値
-number_of_population = 100  # GA の世代数
-number_of_generation = 150  # GA の個体数
+number_of_population = 100  # GA の個体数
+number_of_generation = 150  # GA の世代数
 fold_number = 5  # クロスバリデーションの fold 数
 max_number_of_components = 10  # PLS の最大成分数
 # 設定 ここまで
